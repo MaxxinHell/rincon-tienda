@@ -1,0 +1,204 @@
+/* =========================================================
+   EL RINCÓN DEL LIBRO — estilos de las páginas de género
+   (este archivo faltaba: era la causa de que las páginas
+   de género se vieran sin estilo)
+   ========================================================= */
+
+.genero-detalle {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.genero-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.icon-grande {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    animation: floatIcon 3.5s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(-4deg); }
+}
+
+.genero-header h2 {
+    font-size: 2.6rem;
+    color: var(--dark);
+    position: relative;
+    display: inline-block;
+}
+
+.genero-header h2::after {
+    content: '';
+    display: block;
+    width: 90px;
+    height: 4px;
+    margin: 0.8rem auto 0;
+    background: linear-gradient(90deg, var(--gold), var(--burgundy));
+    border-radius: 4px;
+}
+
+.genero-descripcion {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    color: var(--dark-soft);
+    font-size: 1.1rem;
+    font-style: italic;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.15s;
+}
+
+/* ---------- Lista de libros ---------- */
+
+.libros-lista {
+    list-style: none;
+    counter-reset: libro-contador;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 3rem;
+}
+
+.libros-lista li {
+    counter-increment: libro-contador;
+    opacity: 0;
+    transform: translateX(-25px);
+    animation: slideInBook 0.6s ease forwards;
+}
+
+.libros-lista li:nth-child(1) { animation-delay: 0.05s; }
+.libros-lista li:nth-child(2) { animation-delay: 0.1s; }
+.libros-lista li:nth-child(3) { animation-delay: 0.15s; }
+.libros-lista li:nth-child(4) { animation-delay: 0.2s; }
+.libros-lista li:nth-child(5) { animation-delay: 0.25s; }
+.libros-lista li:nth-child(6) { animation-delay: 0.3s; }
+.libros-lista li:nth-child(7) { animation-delay: 0.35s; }
+.libros-lista li:nth-child(8) { animation-delay: 0.4s; }
+.libros-lista li:nth-child(9) { animation-delay: 0.45s; }
+.libros-lista li:nth-child(10) { animation-delay: 0.5s; }
+
+@keyframes slideInBook {
+    from { opacity: 0; transform: translateX(-25px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.libro-contenido {
+    position: relative;
+    background-color: var(--cream-soft);
+    border-radius: 12px;
+    padding: 1.3rem 1.5rem 1.3rem 4rem;
+    box-shadow: 0 4px 14px var(--shadow-color);
+    border-left: 5px solid var(--gold);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.libro-contenido::before {
+    content: counter(libro-contador);
+    position: absolute;
+    left: 0.9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--burgundy));
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.libro-contenido:hover {
+    transform: translateX(8px);
+    box-shadow: 0 10px 25px var(--shadow-color);
+    border-color: var(--burgundy);
+}
+
+.libro-contenido h4 {
+    font-size: 1.3rem;
+    color: var(--dark);
+    margin-bottom: 0.2rem;
+}
+
+.libro-contenido .autor {
+    color: var(--burgundy);
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.libro-contenido .descripcion {
+    color: var(--dark-soft);
+    font-size: 0.95rem;
+}
+
+/* ---------- Botón volver ---------- */
+
+.volver-btn {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    background: linear-gradient(90deg, var(--jade), var(--jade-light));
+    background-size: 200% auto;
+    color: var(--cream-soft);
+    padding: 0.7rem 1.8rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s, background-position 0.5s, box-shadow 0.3s;
+}
+
+.volver-btn:hover {
+    background-position: 100% center;
+    transform: translateX(-6px) scale(1.04);
+    box-shadow: 0 8px 20px rgba(47, 114, 102, 0.4);
+}
+
+@media (max-width: 600px) {
+    .libro-contenido {
+        padding: 1.2rem 1rem 1.2rem 3.4rem;
+    }
+    .icon-grande {
+        font-size: 3.8rem;
+    }
+    .genero-header h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .libro-contenido {
+        padding: 1rem 0.9rem 1rem 3rem;
+    }
+    .libro-contenido h4 {
+        font-size: 1.1rem;
+    }
+    .libro-contenido::before {
+        left: 0.6rem;
+        width: 1.8rem;
+        height: 1.8rem;
+        font-size: 0.85rem;
+    }
+    .genero-descripcion {
+        font-size: 1rem;
+    }
+    .icon-grande {
+        font-size: 3.2rem;
+    }
+    .badge-ranking {
+        display: block;
+        width: fit-content;
+        margin: 0.4rem 0 0;
+    }
+}

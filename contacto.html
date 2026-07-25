@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto - El Rincón del Libro</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">📖 El Rincón del Libro</div>
+
+<nav>
+
+<ul>
+
+<li><a href="index.html">Inicio</a></li>
+<li><a href="index.html#categorias">Géneros</a></li>
+<li><a href="mas_leidos.html">Más Leídos</a></li>
+<li><a href="recomendaciones.html">Recomendaciones</a></li>
+<li><a href="historia.html">Nuestra Historia</a></li>
+<li><a href="sobre.html">Nosotros</a></li>
+<li><a href="contacto.html">Contacto</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<section>
+
+<h2 class="section-title">Contáctanos</h2>
+
+<p class="section-subtitle">
+Escríbenos y recibiré el mensaje directamente en Telegram.
+</p>
+
+<form id="form-contacto" class="contacto-form">
+
+<label>Nombre</label>
+
+<input
+type="text"
+id="nombre"
+placeholder="Tu nombre"
+required>
+
+<label>Correo electrónico</label>
+
+<input
+type="email"
+id="email"
+placeholder="correo@ejemplo.com"
+required>
+
+<label>Mensaje</label>
+
+<textarea
+id="mensaje"
+rows="6"
+placeholder="Escribe tu mensaje..."
+required></textarea>
+
+<button type="submit">
+Enviar mensaje
+</button>
+
+<p id="form-msg"></p>
+
+</form>
+
+</section>
+
+<footer>
+
+<p>© El Rincón del Libro</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
