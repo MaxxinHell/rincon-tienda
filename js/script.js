@@ -1,6 +1,11 @@
 // Animación Fade In y Gestión del Formulario
 document.addEventListener('DOMContentLoaded', () => {
 
+    // PROBAR Y CONECTAR BASE DE DATOS SUPABASE
+    if (typeof window.obtenerLibrosDesdeSupabase === 'function') {
+        window.obtenerLibrosDesdeSupabase();
+    }
+
     const revealEls = document.querySelectorAll('.reveal');
 
     if (!('IntersectionObserver' in window) || revealEls.length === 0) {
